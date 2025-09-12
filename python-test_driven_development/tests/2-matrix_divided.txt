@@ -1,5 +1,3 @@
-Module 2-matrix_divided
-
 def matrix_divided(matrix, div) defines the division of all elements of a matrix
 
 	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
