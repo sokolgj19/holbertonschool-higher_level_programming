@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+''' class with method that raises exception '''
+
+
+class BaseGeometry:
+    ''' class with method that raises exception '''
+    def area(self):
+        ''' method that raises exception '''
+        raise Exception("area() is not implemented")
+    
+    def integer_validator(self, name, value):
+        ''' method that validates value '''
+        if type(value) != int:
+            raise TypeError("<name> must be an integer")
+        if value <= 0:
+            raise ValueError("<name> must be greater than 0")
