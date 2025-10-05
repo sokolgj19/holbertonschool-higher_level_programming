@@ -1,37 +1,38 @@
 #!/usr/bin/env python3
+"""Module that serializes and deserializes with pickle."""
 
 import pickle
-"""module that serializes and deserializes with pickle"""
 
 
 class CustomObject:
-    """object made for testing pickle implementation"""
+    """Object made for testing pickle implementation."""
+
     def __init__(self, name, age, is_student):
-        """initializing custom object"""
+        """Initialize custom object."""
         self.name = name
         self.age = age
         self.is_student = is_student
 
     def display(self):
-        """displaying object"""
+        """Display object attributes."""
         print(f"Name: {self.name}")
         print(f"Age: {self.age}")
         print(f"Is Student: {self.is_student}")
 
     def serialize(self, filename):
-        """pickle serialization"""
+        """Serialize object using pickle."""
         try:
             with open(filename, "wb") as file:
                 pickle.dump(self, file)
-        except FileNotFoundError:
+        except (FileNotFoundError, pickle.PickleError):
             return None
 
     @classmethod
     def deserialize(cls, filename):
-        """pickle deserialization"""
+        """Deserialize object from file using pickle."""
         try:
             with open(filename, "rb") as file:
                 python_object = pickle.load(file)
                 return python_object
-        except FileNotFoundError:
+        except (FileNotFoundError, pickle.PickleError):
             return None
