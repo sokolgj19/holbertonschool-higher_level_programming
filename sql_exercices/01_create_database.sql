@@ -1,2 +1,3 @@
 -- create database
-CREATE DATABASE task_management;
+CREATE DATABASE IF NOT EXISTS task_management;
+USE task_management;
